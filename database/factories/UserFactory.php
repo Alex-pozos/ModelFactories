@@ -4,6 +4,7 @@ namespace Database\Factories;
 
 use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Support\Str;
 
 class UserFactory extends Factory
@@ -67,7 +68,14 @@ class UserFactory extends Factory
         });
     }
 
+    public function test_models_can_be_instantiated()
+    {
+        $user = User::factory()->make();
     
+        // Use model in tests...
+
+        $users = User::factory()->count(3)->make();
+    }
 
 
 }
